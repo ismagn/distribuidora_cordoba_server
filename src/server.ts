@@ -33,7 +33,7 @@ dotenv.config()
             }
         }
     }
-    server.use(cors())
+    server.use(cors(corsOptions))
 
 
     //leer datos de formularios
