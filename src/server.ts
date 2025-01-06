@@ -33,10 +33,7 @@ dotenv.config()
             }
         }
     }
-    server.use(cors({
-  origin: 'https://smoke-shop-420.netlify.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-  credentials: true 
+    server.use(cors())
 }))
 
 
