@@ -24,15 +24,20 @@ dotenv.config()
     const server = express()
 
     //permitir conexiones al frontend (especificos)
-    const corsOptions:CorsOptions = {
-        origin: function(origin, callback) {
-            if (origin === process.env.CLIENT_URL) { 
-                callback(null,true)
-            }else{
-                callback(new Error('Error de CORS'))
-            }
+    const whiteList = [process.env.CLIENT_URL];
+
+const corsOptions:CorsOptions = {
+    origin: function (origin, callback) {
+        if (whiteList.includes(origin)) {
+            //puede consultar API
+            callback(null, true);
+        } else {
+            //no esta permitido
+            callback(new Error("error de cors"))
         }
     }
+}
+
     server.use(cors())
 
 
