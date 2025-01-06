@@ -39,7 +39,6 @@ const corsOptions:CorsOptions = {
 }
 
     server.use(cors())
-}))
 
 
     //leer datos de formularios
